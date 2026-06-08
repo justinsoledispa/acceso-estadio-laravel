@@ -44,7 +44,7 @@
 
                 @if(auth()->user()->rol->nombre === 'Operador de acreditación')
                     <a href="/operador/dashboard" class="list-group-item list-group-item-action">Dashboard</a>
-                    <a href="#" class="list-group-item list-group-item-action">Usuarios</a>
+                    <a href="{{ route('operador.usuarios.index') }}" class="list-group-item list-group-item-action">Usuarios</a>
                     <a href="#" class="list-group-item list-group-item-action">Credenciales</a>
                 @endif
 
@@ -57,6 +57,11 @@
         </aside>
 
         <main class="col-md-9 col-lg-10 p-4">
+            @if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
             @yield('content')
         </main>
     </div>
