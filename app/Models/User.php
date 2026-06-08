@@ -9,8 +9,18 @@ use Illuminate\Database\Eloquent\Attributes\Hidden;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Models\Rol;
 
-#[Fillable(['name', 'email', 'password'])]
+#[Fillable([
+    'role_id',
+    'name',
+    'apellido',
+    'email',
+    'password',
+    'documento',
+    'telefono',
+    'estado',
+])]
 #[Hidden(['password', 'remember_token'])]
 class User extends Authenticatable
 {
@@ -29,4 +39,13 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    public function rol()
+{
+    return $this->belongsTo(Rol::class, 'role_id');
+}
+
+public function credenciales()
+{
+    return $this->hasMany(Credencial::class, 'user_id');
+}
 }
