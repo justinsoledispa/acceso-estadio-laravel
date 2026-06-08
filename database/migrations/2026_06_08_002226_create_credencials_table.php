@@ -22,6 +22,8 @@ return new class extends Migration
         $table->boolean('identidad_verificada')->default(false);
         $table->string('estado', 20)->default('activa');
         $table->timestamps();
+
+        $table->unique(['user_id', 'partido_id']);
     });
 }
 
