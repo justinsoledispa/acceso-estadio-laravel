@@ -22,7 +22,7 @@ class DemoDataSeeder extends Seeder
         $tribunaNorteId = DB::table('zonas')->insertGetId([
             'estadio_id' => $estadioId,
             'nombre' => 'Tribuna Norte',
-            'tipo_zona' => 'publica',
+            'tipo_zona' => 'general',
             'descripcion' => 'Zona general para hinchas.',
             'estado' => 'activa',
             'created_at' => now(),

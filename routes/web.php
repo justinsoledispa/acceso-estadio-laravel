@@ -3,6 +3,7 @@ use App\Http\Controllers\OperadorCredencialController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\OperadorUsuarioController;
+use App\Http\Controllers\UsuarioFinalController;
 
 Route::get('/', function () {
     return redirect('/login');
@@ -52,7 +53,18 @@ Route::put('/operador/credenciales/{credencial}', [OperadorCredencialController:
 });
 
 Route::middleware(['auth', 'role:Usuario final'])->group(function () {
-    Route::get('/usuario/credencial', function () {
-        return view('usuario.credencial');
-    })->name('usuario.credencial');
+    Route::get('/usuario/credencial', [UsuarioFinalController::class, 'credencial'])
+        ->name('usuario.credencial');
+
+    Route::get('/usuario/simular-ingreso', [UsuarioFinalController::class, 'seleccionarCredencial'])
+        ->name('usuario.simular-ingreso.seleccionar');
+
+    Route::get('/usuario/credenciales/{credencial}/simular-ingreso', [UsuarioFinalController::class, 'simularIngreso'])
+        ->name('usuario.simular-ingreso');
+
+    Route::post('/usuario/credenciales/{credencial}/simular-ingreso', [UsuarioFinalController::class, 'procesarIngreso'])
+        ->name('usuario.simular-ingreso.procesar');
+
+    Route::get('/usuario/historial', [UsuarioFinalController::class, 'historial'])
+        ->name('usuario.historial');
 });
