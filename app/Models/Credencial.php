@@ -18,6 +18,11 @@ class Credencial extends Model
         'identidad_verificada',
         'estado',
     ];
+    protected $casts = [
+    'fecha_emision' => 'date',
+    'fecha_vencimiento' => 'date',
+    'identidad_verificada' => 'boolean',
+];
 
     public function user()
     {

@@ -14,9 +14,12 @@
             Registrar usuario
         </a>
 
-        <a href="#" class="btn btn-outline-primary">
+        <a href="{{ route('operador.credenciales.create') }}" class="btn btn-outline-primary">
             Emitir credencial
         </a>
+        <a href="{{ route('operador.credenciales.index') }}" class="btn btn-outline-secondary">
+    Ver credenciales
+</a>
     </div>
 </div>
 @endsection

@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\OperadorCredencialController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\OperadorUsuarioController;
@@ -31,6 +31,24 @@ Route::middleware(['auth', 'role:Operador de acreditación'])->group(function ()
 
     Route::post('/operador/usuarios', [OperadorUsuarioController::class, 'store'])
         ->name('operador.usuarios.store');
+
+    Route::get('/operador/credenciales', [OperadorCredencialController::class, 'index'])
+    ->name('operador.credenciales.index');
+
+Route::get('/operador/credenciales/create', [OperadorCredencialController::class, 'create'])
+    ->name('operador.credenciales.create');
+
+Route::post('/operador/credenciales', [OperadorCredencialController::class, 'store'])
+    ->name('operador.credenciales.store');
+
+Route::get('/operador/credenciales/{credencial}', [OperadorCredencialController::class, 'show'])
+    ->name('operador.credenciales.show');
+
+Route::get('/operador/credenciales/{credencial}/edit', [OperadorCredencialController::class, 'edit'])
+    ->name('operador.credenciales.edit');
+
+Route::put('/operador/credenciales/{credencial}', [OperadorCredencialController::class, 'update'])
+    ->name('operador.credenciales.update');
 });
 
 Route::middleware(['auth', 'role:Usuario final'])->group(function () {

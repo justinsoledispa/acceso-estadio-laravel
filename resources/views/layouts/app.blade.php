@@ -45,7 +45,7 @@
                 @if(auth()->user()->rol->nombre === 'Operador de acreditación')
                     <a href="/operador/dashboard" class="list-group-item list-group-item-action">Dashboard</a>
                     <a href="{{ route('operador.usuarios.index') }}" class="list-group-item list-group-item-action">Usuarios</a>
-                    <a href="#" class="list-group-item list-group-item-action">Credenciales</a>
+                    <a href="{{ route('operador.credenciales.index') }}" class="list-group-item list-group-item-action">Credenciales</a>
                 @endif
 
                 @if(auth()->user()->rol->nombre === 'Usuario final')
