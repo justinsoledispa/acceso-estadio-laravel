@@ -19,7 +19,6 @@ return new class extends Migration
         $table->string('codigo_credencial', 50)->unique();
         $table->date('fecha_emision');
         $table->date('fecha_vencimiento');
-        $table->boolean('identidad_verificada')->default(false);
         $table->string('estado', 20)->default('activa');
         $table->timestamps();
 

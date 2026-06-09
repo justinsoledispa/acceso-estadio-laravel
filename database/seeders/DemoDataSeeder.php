@@ -209,7 +209,6 @@ class DemoDataSeeder extends Seeder
             'codigo_credencial' => 'CRD-2026-00045',
             'fecha_emision' => now()->toDateString(),
             'fecha_vencimiento' => now()->addDays(1)->toDateString(),
-            'identidad_verificada' => true,
             'estado' => 'activa',
             'created_at' => now(),
             'updated_at' => now(),

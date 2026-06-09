@@ -68,7 +68,7 @@ class OperadorCredencialController extends Controller
             ],
             'fecha_emision' => ['required', 'date'],
             'fecha_vencimiento' => ['required', 'date', 'after_or_equal:fecha_emision'],
-            'identidad_verificada' => ['nullable', 'boolean'],
+            
         ], [
             'user_id.required' => 'Debe seleccionar un usuario.',
             'user_id.exists' => 'El usuario seleccionado no es válido.',
@@ -85,7 +85,6 @@ class OperadorCredencialController extends Controller
             'codigo_credencial' => $this->generarCodigoCredencial(),
             'fecha_emision' => $datos['fecha_emision'],
             'fecha_vencimiento' => $datos['fecha_vencimiento'],
-            'identidad_verificada' => $request->boolean('identidad_verificada'),
             'estado' => 'activa',
         ]);
 
@@ -112,16 +111,15 @@ class OperadorCredencialController extends Controller
     {
         $datos = $request->validate([
             'estado' => ['required', Rule::in(['activa', 'suspendida', 'vencida'])],
-            'identidad_verificada' => ['nullable', 'boolean'],
+            
         ], [
             'estado.required' => 'Debe seleccionar un estado.',
             'estado.in' => 'El estado seleccionado no es válido.',
         ]);
 
         $credencial->update([
-            'estado' => $datos['estado'],
-            'identidad_verificada' => $request->boolean('identidad_verificada'),
-        ]);
+    'estado' => $datos['estado'],
+]);
 
         return redirect()
             ->route('operador.credenciales.show', $credencial)

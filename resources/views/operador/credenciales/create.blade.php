@@ -112,19 +112,7 @@
                 </div>
             </div>
 
-            <div class="form-check mb-4">
-                <input
-                    type="checkbox"
-                    name="identidad_verificada"
-                    id="identidad_verificada"
-                    class="form-check-input"
-                    value="1"
-                    @checked(old('identidad_verificada', true))
-                >
-                <label for="identidad_verificada" class="form-check-label">
-                    Identidad verificada
-                </label>
-            </div>
+
 
             <div class="d-flex gap-2">
                 <button type="submit" class="btn btn-primary">
