@@ -34,7 +34,7 @@ public function store(Request $request): RedirectResponse
         'name' => ['required', 'string', 'max:255'],
         'apellido' => ['nullable', 'string', 'max:50'],
         'email' => ['required', 'email', 'max:255', 'unique:users,email'],
-        'documento' => ['nullable', 'string', 'max:20', 'unique:users,documento'],
+        'documento' => ['required', 'string', 'max:10', 'unique:users,documento'],
         'telefono' => ['nullable', 'regex:/^09[0-9]{8}$/'],
         'password' => ['required', 'string', 'min:8', 'confirmed'],
     ], [

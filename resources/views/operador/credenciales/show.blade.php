@@ -61,14 +61,6 @@
                     <dt class="col-sm-4">Vencimiento</dt>
                     <dd class="col-sm-8">{{ $credencial->fecha_vencimiento->format('d/m/Y') }}</dd>
 
-                    <dt class="col-sm-4">Identidad</dt>
-                    <dd class="col-sm-8">
-                        @if($credencial->identidad_verificada)
-                            <span class="badge bg-success">Verificada</span>
-                        @else
-                            <span class="badge bg-danger">No verificada</span>
-                        @endif
-                    </dd>
 
                     <dt class="col-sm-4">Estado</dt>
                     <dd class="col-sm-8">

@@ -71,6 +71,7 @@
                         id="documento"
                         class="form-control @error('documento') is-invalid @enderror"
                         value="{{ old('documento') }}"
+                        maxlength="10"
                     >
 
                     @error('documento')

@@ -198,6 +198,12 @@ class DemoDataSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
+            [
+    'tipo_acreditacion_id' => $staffId,
+    'zona_id' => $zonaPrensaId,
+    'created_at' => now(),
+    'updated_at' => now(),
+],
         ]);
 
         $usuarioFinalId = DB::table('users')->where('email', 'usuario@test.com')->value('id');

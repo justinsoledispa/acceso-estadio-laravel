@@ -15,7 +15,7 @@ return new class extends Migration
                 ->constrained('roles');
 
             $table->string('apellido', 50)->nullable()->after('name');
-            $table->string('documento', 20)->nullable()->after('email');
+            $table->string('documento', 10)->nullable()->after('email');
             $table->string('telefono', 20)->nullable()->after('documento');
             $table->string('estado', 20)->default('activo')->after('telefono');
         });
