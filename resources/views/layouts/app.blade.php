@@ -44,19 +44,32 @@
 
                 @if(auth()->user()->rol->nombre === 'Operador de acreditación')
                     <a href="/operador/dashboard" class="list-group-item list-group-item-action">Dashboard</a>
-                    <a href="#" class="list-group-item list-group-item-action">Usuarios</a>
-                    <a href="#" class="list-group-item list-group-item-action">Credenciales</a>
+                    <a href="{{ route('operador.usuarios.index') }}" class="list-group-item list-group-item-action">Usuarios</a>
+                    <a href="{{ route('operador.credenciales.index') }}" class="list-group-item list-group-item-action">Credenciales</a>
                 @endif
 
                 @if(auth()->user()->rol->nombre === 'Usuario final')
-                    <a href="/usuario/credencial" class="list-group-item list-group-item-action">Mi credencial</a>
-                    <a href="#" class="list-group-item list-group-item-action">Simular ingreso</a>
-                    <a href="#" class="list-group-item list-group-item-action">Mi historial</a>
-                @endif
+    <a href="{{ route('usuario.credencial') }}" class="list-group-item list-group-item-action">
+        Mi credencial
+    </a>
+
+    <a href="{{ route('usuario.simular-ingreso.seleccionar') }}" class="list-group-item list-group-item-action">
+        Simular ingreso
+    </a>
+
+    <a href="{{ route('usuario.historial') }}" class="list-group-item list-group-item-action">
+        Mi historial
+    </a>
+@endif
             </div>
         </aside>
 
         <main class="col-md-9 col-lg-10 p-4">
+            @if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
             @yield('content')
         </main>
     </div>

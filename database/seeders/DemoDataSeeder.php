@@ -22,7 +22,7 @@ class DemoDataSeeder extends Seeder
         $tribunaNorteId = DB::table('zonas')->insertGetId([
             'estadio_id' => $estadioId,
             'nombre' => 'Tribuna Norte',
-            'tipo_zona' => 'publica',
+            'tipo_zona' => 'general',
             'descripcion' => 'Zona general para hinchas.',
             'estado' => 'activa',
             'created_at' => now(),
@@ -198,6 +198,12 @@ class DemoDataSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
+            [
+    'tipo_acreditacion_id' => $staffId,
+    'zona_id' => $zonaPrensaId,
+    'created_at' => now(),
+    'updated_at' => now(),
+],
         ]);
 
         $usuarioFinalId = DB::table('users')->where('email', 'usuario@test.com')->value('id');
@@ -209,7 +215,6 @@ class DemoDataSeeder extends Seeder
             'codigo_credencial' => 'CRD-2026-00045',
             'fecha_emision' => now()->toDateString(),
             'fecha_vencimiento' => now()->addDays(1)->toDateString(),
-            'identidad_verificada' => true,
             'estado' => 'activa',
             'created_at' => now(),
             'updated_at' => now(),

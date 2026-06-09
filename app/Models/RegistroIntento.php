@@ -16,6 +16,9 @@ class RegistroIntento extends Model
         'resultado',
         'motivo_rechazo',
     ];
+    protected $casts = [
+    'fecha_hora' => 'datetime',
+];
 
     public function credencial()
     {
