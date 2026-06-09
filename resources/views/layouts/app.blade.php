@@ -49,10 +49,18 @@
                 @endif
 
                 @if(auth()->user()->rol->nombre === 'Usuario final')
-                    <a href="/usuario/credencial" class="list-group-item list-group-item-action">Mi credencial</a>
-                    <a href="#" class="list-group-item list-group-item-action">Simular ingreso</a>
-                    <a href="#" class="list-group-item list-group-item-action">Mi historial</a>
-                @endif
+    <a href="{{ route('usuario.credencial') }}" class="list-group-item list-group-item-action">
+        Mi credencial
+    </a>
+
+    <a href="{{ route('usuario.simular-ingreso.seleccionar') }}" class="list-group-item list-group-item-action">
+        Simular ingreso
+    </a>
+
+    <a href="{{ route('usuario.historial') }}" class="list-group-item list-group-item-action">
+        Mi historial
+    </a>
+@endif
             </div>
         </aside>
 
