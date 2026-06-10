@@ -27,4 +27,23 @@ class AdminController extends Controller
         $totalPartidos = Partido::count();
         return view('admin.reportes', compact('totalEstadios', 'totalPartidos'));
     }
+
+    public function editTiposZonas() 
+    {
+        $tiposAcreditacion = \App\Models\TipoAcreditacion::with('zonas')->get();
+        $estadios = \App\Models\Estadio::with('zonas')->get();
+        return view('admin.tipos_acreditacion_zonas', compact('tiposAcreditacion', 'estadios'));
+    }
+
+    public function updateTiposZonas(\Illuminate\Http\Request $request) {
+        $matrices = $request->input('permisos', []);
+        $todosLosTipos = \App\Models\TipoAcreditacion::all();
+        foreach ($todosLosTipos as $tipo) {
+            $zonasPermitidas = $matrices[$tipo->id] ?? [];
+
+            $tipo->zonas()->sync($zonasPermitidas);
+        }
+        return redirect()->back()->with('success', 'Matriz de permisos de acceso actualizada correctamente.');
+    }
+    
 }
