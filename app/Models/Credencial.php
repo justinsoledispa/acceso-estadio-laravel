@@ -15,9 +15,12 @@ class Credencial extends Model
         'codigo_credencial',
         'fecha_emision',
         'fecha_vencimiento',
-        'identidad_verificada',
         'estado',
     ];
+    protected $casts = [
+    'fecha_emision' => 'date',
+    'fecha_vencimiento' => 'date',
+];
 
     public function user()
     {
