@@ -35,11 +35,11 @@
 
             <div class="list-group">
                 @if(auth()->user()->rol->nombre === 'Administrador')
-                    <a href="/admin/dashboard" class="list-group-item list-group-item-action">Dashboard</a>
-                    <a href="#" class="list-group-item list-group-item-action">Estadios</a>
-                    <a href="#" class="list-group-item list-group-item-action">Partidos</a>
-                    <a href="#" class="list-group-item list-group-item-action">Permisos por tipo</a>
-                    <a href="#" class="list-group-item list-group-item-action">Reportes</a>
+                    <a href="{{ route('admin.dashboard') }}" class="list-group-item list-group-item-action">Dashboard</a>
+                    <a href="{{ route('admin.estadios.index') }}" class="list-group-item list-group-item-action">Estadios</a>
+                    <a href="{{ route('admin.partidos.index') }}" class="list-group-item list-group-item-action">Partidos</a>
+                    <a href="{{ route('admin.tipos_acreditacion.zonas') }}" class="list-group-item list-group-item-action">Permisos por tipo</a>
+                    <a href="{{ route('admin.reportes') }}" class="list-group-item list-group-item-action">Reportes</a>
                 @endif
 
                 @if(auth()->user()->rol->nombre === 'Operador de acreditación')
