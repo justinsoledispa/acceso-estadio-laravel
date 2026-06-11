@@ -6,47 +6,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ asset('css/acceso.css') }}" rel="stylesheet">
 </head>
 
-<body class="bg-dark">
+<body class="login-body">
 
-<div class="container d-flex justify-content-center align-items-center min-vh-100">
-    <div class="card shadow-lg border-0" style="width: 420px;">
+<div class="container d-flex justify-content-center align-items-center min-vh-100 px-3">
+    <div class="card login-card shadow-lg">
+        <div class="login-header text-center">
+            <div class="login-mark">AC</div>
+            <h3 class="mb-1">StadPass</h3>
+            <p class="mb-0 text-white-50">
+                Sistema de acreditación para estadios
+            </p>
+        </div>
+
         <div class="card-body p-4">
-            <h3 class="text-center mb-2">Control de Acceso</h3>
-            <p class="text-center text-muted mb-4">Sistema de acreditación para estadio</p>
-
             @if(session('error'))
                 <div class="alert alert-danger">
                     {{ session('error') }}
                 </div>
             @endif
 
-            <form method="POST" action="/login">
+            <form method="POST" action="{{ route('login.post') }}">
                 @csrf
 
                 <div class="mb-3">
                     <label class="form-label">Correo electrónico</label>
-                    <input type="email" name="email" class="form-control" value="{{ old('email') }}" required>
+                    <input
+                        type="email"
+                        name="email"
+                        class="form-control"
+                        value="{{ old('email') }}"
+                        placeholder="usuario@test.com"
+                        required
+                    >
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Contraseña</label>
-                    <input type="password" name="password" class="form-control" required>
+                    <input
+                        type="password"
+                        name="password"
+                        class="form-control"
+                        placeholder="Ingresa tu contraseña"
+                        required
+                    >
                 </div>
 
-                <button type="submit" class="btn btn-primary w-100">
+                <button type="submit" class="btn btn-primary w-100 py-2">
                     Iniciar sesión
                 </button>
             </form>
 
-            <hr>
-
-            <div class="small text-muted">
-                <strong>Usuarios demo:</strong><br>
-                admin@test.com / 12345678<br>
-                operador@test.com / 12345678<br>
-                usuario@test.com / 12345678
+            <div class="demo-box small text-muted mt-4">
+                <strong>Usuarios demo</strong><br>
+                Administrador: admin@test.com / 12345678<br>
+                Operador: operador@test.com / 12345678<br>
+                Usuario final: usuario@test.com / 12345678
             </div>
         </div>
     </div>
