@@ -18,7 +18,7 @@
 <nav class="navbar app-topbar px-4 py-3">
     <div class="container-fluid px-0">
         <a class="app-brand" href="#">
-            <span class="app-brand-icon">▣</span>
+            <span class="app-brand-icon"> </span>
             <span>Sistema de Acreditación</span>
         </a>
 
