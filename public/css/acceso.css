@@ -196,13 +196,13 @@ body {
 .badge-estado-activa,
 .badge-estado-aprobado {
     background: #dcfce7;
-    color: #166534;
+    color: #489312;
 }
 
 .badge-estado-suspendida,
 .badge-estado-rechazado {
     background: #fee2e2;
-    color: #991b1b;
+    color: #791F1F;
 }
 
 .badge-estado-vencida {
@@ -447,6 +447,118 @@ body {
     background: #0369a1 !important;
     border-color: #0369a1 !important;
     color: #ffffff !important;
+}
+
+/* FORMULARIOS OPERATIVOS */
+
+.form-card {
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+.form-card .card-body {
+    padding: 1.5rem;
+}
+
+.form-section-title {
+    font-size: 0.78rem;
+    font-weight: 800;
+    color: #0284c7;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 1rem;
+}
+
+.form-help-box {
+    background: #f8fafc;
+    border: 1px solid var(--access-border);
+    border-radius: 14px;
+    padding: 1rem;
+    color: var(--access-muted);
+}
+
+.form-help-box strong {
+    color: var(--access-dark);
+}
+
+.form-actions {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    padding-top: 0.5rem;
+}
+
+/* CREDENCIAL DIGITAL */
+
+.credential-shell {
+    max-width: 760px;
+}
+
+.credential-card {
+    border-radius: 22px;
+    overflow: hidden;
+    border: 1px solid var(--access-border);
+    box-shadow: 0 16px 34px rgba(15, 23, 42, 0.08);
+}
+
+.credential-top {
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: #ffffff;
+    padding: 1.25rem 1.5rem;
+}
+
+.credential-top small {
+    color: #cbd5e1;
+}
+
+.credential-code-panel {
+    background:
+        linear-gradient(135deg, rgba(14, 165, 233, 0.12), rgba(15, 23, 42, 0.04)),
+        #f8fafc;
+    border: 1px dashed #93c5fd;
+    border-radius: 18px;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.credential-code-label {
+    color: var(--access-muted);
+    font-size: 0.78rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.credential-code {
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--access-dark);
+    letter-spacing: 0.04em;
+    margin: 0.35rem 0;
+}
+
+.credential-details {
+    margin-bottom: 0;
+}
+
+.credential-details dt {
+    color: var(--access-muted);
+    font-size: 0.82rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.credential-details dd {
+    color: var(--access-dark);
+    font-weight: 600;
+}
+
+.status-summary {
+    border-radius: 16px;
+    background: #f8fafc;
+    border: 1px solid var(--access-border);
+    padding: 1rem;
 }
 /* RESPONSIVE */
 
