@@ -1,79 +1,101 @@
 @extends('layouts.app')
 
-@section('content')
-<div class="d-flex justify-content-between align-items-center mb-4">
-    <div>
-        <h2>Seguridad: Permisos de Acceso</h2>
-        <p class="text-muted mb-0">Cruza los Roles de Acreditación con las Zonas Físicas permitidas en cada Estadio.</p>
-    </div>
-</div>
+@section('title', 'Permisos por tipo de acreditación')
 
-@if(session('success'))
-    <div class="alert alert-success py-2">{{ session('success') }}</div>
-@endif
+@section('content')
+<div class="page-header">
+    <div>
+        <div class="page-kicker">Seguridad de acceso</div>
+        <h1 class="page-title">Permisos por tipo de acreditación</h1>
+        <p class="page-subtitle">
+            Define qué zonas físicas puede utilizar cada tipo de acreditación dentro de los estadios registrados.
+        </p>
+    </div>
+
+    <a href="{{ route('admin.dashboard') }}" class="btn btn-outline-primary">
+        Volver al dashboard
+    </a>
+</div>
 
 <form action="{{ route('admin.tipos_acreditacion.zonas.update') }}" method="POST">
     @csrf
-    
-    <div class="row g-4">
+
+    <div class="permission-grid">
         @foreach($tiposAcreditacion as $tipo)
-            <div class="col-md-6">
-                <div class="card shadow-sm border-0 h-100">
-                    <div class="card-header bg-dark text-white fw-bold">
-                        💼 Perfil: {{ $tipo->nombre }}
-                    </div>
-                    
-                    <div class="card-body bg-white">
-                        <p class="text-secondary small">Selecciona a qué áreas físicas puede ingresar este perfil:</p>
-                        
-                        @php 
-                            // Obtenemos los IDs de las zonas que este perfil ya tiene autorizadas actualmente
-                            $idZonasAutorizadas = $tipo->zonas->pluck('id')->toArray(); 
-                        @endphp
+            <div class="permission-card">
+                <div class="permission-card-header">
+                    <small>Perfil de acreditación</small>
+                    <h5 class="permission-card-title">{{ $tipo->nombre }}</h5>
+                </div>
 
-                        @foreach($estadios as $estadio)
-                            @if($estadio->zonas->count() > 0)
-                                <div class="mb-3">
-                                    <h6 class="fw-bold text-primary small border-bottom pb-1">
-                                        🏟️ {{ $estadio->nombre }} ({{ $estadio->ciudad }})
-                                    </h6>
-                                    
-                                    <div class="row row-cols-2 g-2">
-                                        @foreach($estadio->zonas as $zona)
-                                            <div class="col">
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input border-secondary" 
-                                                           type="checkbox" 
-                                                           name="permisos[{{ $tipo->id }}][]" 
-                                                           value="{{ $zona->id }}"
-                                                           id="chk_{{ $tipo->id }}_{{ $zona->id }}"
-                                                           {{ in_array($zona->id, $idZonasAutorizadas) ? 'checked' : '' }}>
-                                                    <label class="form-check-label small cursor-pointer" for="chk_{{ $tipo->id }}_{{ $zona->id }}">
-                                                        {{ $zona->nombre }} <span class="text-muted">({{ $zona->tipo_zona }})</span>
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        @endforeach
-                                    </div>
+                <div class="permission-card-body">
+                    <p class="permission-help">
+                        Selecciona las zonas restringidas a las que este perfil puede ingresar.
+                    </p>
+
+                    @php
+                        $idZonasAutorizadas = $tipo->zonas->pluck('id')->toArray();
+                    @endphp
+
+                    @foreach($estadios as $estadio)
+                        @if($estadio->zonas->count() > 0)
+                            <div class="stadium-permission-block">
+                                <div class="stadium-permission-title">
+                                    {{ $estadio->nombre }} · {{ $estadio->ciudad }}
                                 </div>
-                            @endif
-                        @endforeach
 
-                        @if($estadios->flatMap->zonas->count() == 0)
-                            <div class="text-center text-muted py-3 small">
-                                No hay zonas creadas en ningún estadio todavía.
+                                <div class="zone-check-grid">
+                                    @foreach($estadio->zonas as $zona)
+                                        <div class="zone-check-item">
+                                            <div class="form-check">
+                                                <input
+                                                    class="form-check-input"
+                                                    type="checkbox"
+                                                    name="permisos[{{ $tipo->id }}][]"
+                                                    value="{{ $zona->id }}"
+                                                    id="chk_{{ $tipo->id }}_{{ $zona->id }}"
+                                                    {{ in_array($zona->id, $idZonasAutorizadas) ? 'checked' : '' }}
+                                                >
+
+                                                <label class="form-check-label" for="chk_{{ $tipo->id }}_{{ $zona->id }}">
+                                                    {{ $zona->nombre }}
+                                                    <small>{{ $zona->tipo_zona }}</small>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
                             </div>
                         @endif
-                    </div>
+                    @endforeach
+
+                    @if($estadios->flatMap->zonas->count() == 0)
+                        <div class="empty-state py-4">
+                            <h5 class="empty-state-title">No hay zonas creadas</h5>
+                            <p class="empty-state-text">
+                                Primero registra zonas dentro de los estadios para configurar permisos.
+                            </p>
+
+                            <a href="{{ route('admin.estadios.index') }}" class="btn btn-primary">
+                                Ir a Estadios
+                            </a>
+                        </div>
+                    @endif
                 </div>
             </div>
         @endforeach
     </div>
 
-    <div class="mt-4 pt-3 border-top text-end">
-        <button type="submit" class="btn btn-success fw-bold px-5 shadow">
-            Guardar Matriz de Permisos Global
-        </button>
+    <div class="admin-save-bar">
+        <div class="d-flex justify-content-end gap-2 flex-wrap">
+            <a href="{{ route('admin.dashboard') }}" class="btn btn-outline-secondary">
+                Cancelar
+            </a>
+
+            <button type="submit" class="btn btn-primary px-4">
+                Guardar matriz de permisos
+            </button>
+        </div>
     </div>
 </form>
 @endsection

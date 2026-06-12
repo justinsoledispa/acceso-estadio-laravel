@@ -25,9 +25,13 @@
 <nav class="navbar app-topbar px-4 py-3">
     <div class="container-fluid px-0">
         <a class="app-brand" href="{{ $homeRoute }}">
-            <span class="app-brand-icon"> </span>
-            <span>Sistema de Acreditación</span>
-        </a>
+    <span class="app-brand-icon">SP</span>
+
+    <span class="app-brand-text">
+        <strong>StadPass</strong>
+        <small>Sistema de Acreditación</small>
+    </span>
+</a>
 
         <div class="d-flex align-items-center gap-3">
             <div class="app-user-box">

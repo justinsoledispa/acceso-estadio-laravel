@@ -1,0 +1,250 @@
+/* ADMIN DASHBOARD */
+
+.admin-metric-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.admin-metric-card {
+    background: #ffffff;
+    border: 1px solid var(--access-border);
+    border-radius: 18px;
+    padding: 1.25rem;
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.06);
+}
+
+.admin-metric-label {
+    color: var(--access-muted);
+    font-size: 0.78rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.45rem;
+}
+
+.admin-metric-value {
+    color: var(--access-dark);
+    font-size: 2rem;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.admin-metric-hint {
+    color: var(--access-muted);
+    font-size: 0.88rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+}
+
+.admin-panel {
+    background: #ffffff;
+    border: 1px solid var(--access-border);
+    border-radius: 18px;
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.06);
+    overflow: hidden;
+}
+
+.admin-panel-header {
+    padding: 1.1rem 1.25rem;
+    border-bottom: 1px solid var(--access-border);
+    background: #ffffff;
+}
+
+.admin-panel-title {
+    color: var(--access-dark);
+    font-weight: 800;
+    margin-bottom: 0.15rem;
+}
+
+.admin-panel-subtitle {
+    color: var(--access-muted);
+    font-size: 0.9rem;
+    margin-bottom: 0;
+}
+
+.admin-panel-body {
+    padding: 1.25rem;
+}
+
+.admin-progress-item {
+    margin-bottom: 1rem;
+}
+
+.admin-progress-item:last-child {
+    margin-bottom: 0;
+}
+
+.admin-progress-label {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    color: var(--access-dark);
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+}
+
+.admin-progress-label small {
+    color: var(--access-muted);
+    font-weight: 800;
+}
+
+.admin-progress {
+    height: 12px;
+    border-radius: 999px;
+    background: #e2e8f0;
+    overflow: hidden;
+}
+
+.admin-progress-bar {
+    height: 100%;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #0284c7, #0ea5e9);
+}
+
+/* ADMIN REPORTES */
+
+.report-summary-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.report-summary-card {
+    background: #f8fafc;
+    border: 1px solid var(--access-border);
+    border-radius: 16px;
+    padding: 1.15rem;
+}
+
+.report-summary-label {
+    color: var(--access-muted);
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.45rem;
+}
+
+.report-summary-value {
+    color: var(--access-dark);
+    font-size: 2rem;
+    font-weight: 900;
+}
+
+/* MATRIZ DE PERMISOS */
+
+.permission-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.permission-card {
+    background: #ffffff;
+    border: 1px solid var(--access-border);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.06);
+}
+
+.permission-card-header {
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: #ffffff;
+    padding: 1rem 1.15rem;
+}
+
+.permission-card-header small {
+    color: #cbd5e1;
+}
+
+.permission-card-title {
+    font-weight: 800;
+    margin-bottom: 0;
+}
+
+.permission-card-body {
+    padding: 1.15rem;
+}
+
+.permission-help {
+    color: var(--access-muted);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.stadium-permission-block {
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background: #f8fafc;
+}
+
+.stadium-permission-block:last-child {
+    margin-bottom: 0;
+}
+
+.stadium-permission-title {
+    color: #0369a1;
+    font-size: 0.85rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid #dbeafe;
+    padding-bottom: 0.55rem;
+    margin-bottom: 0.8rem;
+}
+
+.zone-check-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.55rem;
+}
+
+.zone-check-item {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 0.6rem 0.7rem;
+}
+
+.zone-check-item .form-check {
+    margin-bottom: 0;
+}
+
+.zone-check-item label {
+    color: #334155;
+    font-weight: 700;
+}
+
+.zone-check-item small {
+    display: block;
+    color: var(--access-muted);
+    font-weight: 600;
+}
+
+.admin-save-bar {
+    position: sticky;
+    bottom: 0;
+    z-index: 10;
+    background: rgba(238, 242, 246, 0.92);
+    backdrop-filter: blur(8px);
+    border-top: 1px solid var(--access-border);
+    padding: 1rem 0 0;
+    margin-top: 1.5rem;
+}
+
+/* RESPONSIVE ADMIN */
+
+@media (max-width: 991.98px) {
+    .admin-metric-grid,
+    .permission-grid,
+    .report-summary-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .zone-check-grid {
+        grid-template-columns: 1fr;
+    }
+}

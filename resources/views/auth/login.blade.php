@@ -14,10 +14,10 @@
 <div class="container d-flex justify-content-center align-items-center min-vh-100 px-3">
     <div class="card login-card shadow-lg">
         <div class="login-header text-center">
-            <div class="login-mark">AC</div>
+            <div class="login-mark">SP</div>
             <h3 class="mb-1">StadPass</h3>
             <p class="mb-0 text-white-50">
-                Sistema de acreditación para estadios
+                Sistema de Acreditación e Ingreso para Estadios
             </p>
         </div>
 

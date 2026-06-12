@@ -1,0 +1,150 @@
+
+
+.user-credential-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.user-credential-card {
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid var(--access-border);
+    background: #ffffff;
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.06);
+}
+
+.user-credential-top {
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: #ffffff;
+    padding: 1.1rem 1.25rem;
+}
+
+.user-credential-top small {
+    color: #cbd5e1;
+}
+
+.user-credential-body {
+    padding: 1.25rem;
+}
+
+.user-credential-code {
+    background: #f8fafc;
+    border: 1px dashed #93c5fd;
+    border-radius: 16px;
+    padding: 1rem;
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.user-credential-code span {
+    display: block;
+    color: var(--access-muted);
+    font-size: 0.78rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.user-credential-code strong {
+    display: block;
+    color: var(--access-dark);
+    font-size: 1.35rem;
+    letter-spacing: 0.04em;
+    margin-top: 0.25rem;
+}
+
+.info-list {
+    display: grid;
+    gap: 0.65rem;
+}
+
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    border-bottom: 1px solid #eef2f6;
+    padding-bottom: 0.55rem;
+}
+
+.info-item:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+}
+
+.info-label {
+    color: var(--access-muted);
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.info-value {
+    color: var(--access-dark);
+    font-weight: 700;
+    text-align: right;
+}
+
+.access-result {
+    border-radius: 18px;
+    padding: 1.2rem 1.25rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid transparent;
+}
+
+.access-result.approved {
+    background: #dcfce7;
+    border-color: #bbf7d0;
+    color: #166534;
+}
+
+.access-result.rejected {
+    background: #fee2e2;
+    border-color: #fecaca;
+    color: #991b1b;
+}
+
+.access-result-title {
+    font-weight: 900;
+    margin-bottom: 0.35rem;
+}
+
+.zone-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.45rem 0.65rem;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    font-weight: 800;
+    margin: 0 0.35rem 0.45rem 0;
+}
+
+.zone-chip-general {
+    background: #e0f2fe;
+    color: #0369a1;
+    border: 1px solid #bae6fd;
+}
+
+.zone-chip-restricted {
+    background: #f1f5f9;
+    color: #334155;
+    border: 1px solid #e2e8f0;
+}
+
+.simulation-panel {
+    border-radius: 18px;
+    border: 1px solid var(--access-border);
+    background: #ffffff;
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.06);
+}
+
+.simulation-panel-header {
+    padding: 1.1rem 1.25rem;
+    border-bottom: 1px solid var(--access-border);
+    font-weight: 800;
+    color: var(--access-dark);
+    background: #ffffff;
+}
+
+.simulation-panel-body {
+    padding: 1.25rem;
+}

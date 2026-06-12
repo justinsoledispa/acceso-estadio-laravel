@@ -1,0 +1,120 @@
+/* COMPONENTES BASE DE BOOTSTRAP */
+
+.card {
+    border: 1px solid var(--access-border);
+    border-radius: 18px;
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.06);
+}
+
+.card-header {
+    background: #ffffff;
+    border-bottom: 1px solid var(--access-border);
+    border-radius: 18px 18px 0 0 !important;
+    font-weight: 700;
+}
+
+.table {
+    vertical-align: middle;
+}
+
+.table thead th {
+    background: #f8fafc;
+    color: #475569;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    border-bottom: 1px solid var(--access-border);
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.table tbody td {
+    color: #334155;
+    vertical-align: middle;
+}
+
+.btn {
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+.btn-primary {
+    background: #0284c7;
+    border-color: #0284c7;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background: #0369a1;
+    border-color: #0369a1;
+}
+
+.btn-primary:active {
+    background: #075985 !important;
+    border-color: #075985 !important;
+}
+
+.btn-outline-primary {
+    color: #0284c7;
+    border-color: #0284c7;
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:focus {
+    background: #0284c7;
+    border-color: #0284c7;
+    color: #ffffff;
+}
+
+.btn-outline-primary:active {
+    background: #0369a1 !important;
+    border-color: #0369a1 !important;
+    color: #ffffff !important;
+}
+
+.btn-outline-light {
+    border-color: rgba(255, 255, 255, 0.35);
+}
+
+.form-control,
+.form-select {
+    border-radius: 10px;
+    border-color: #cbd5e1;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--access-accent);
+    box-shadow: 0 0 0 0.2rem rgba(14, 165, 233, 0.18);
+}
+
+.alert {
+    border-radius: 14px;
+    border: 0;
+}
+
+/* BADGES ÚTILES PARA ESTADOS */
+
+.badge-estado-activa,
+.badge-estado-aprobado {
+    background: #dcfce7;
+    color: #489312;
+}
+
+.badge-estado-suspendida,
+.badge-estado-rechazado {
+    background: #fee2e2;
+    color: #791F1F;
+}
+
+.badge-estado-vencida {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.badge-role {
+    background: rgba(14, 165, 233, 0.16);
+    color: #7dd3fc;
+    border: 1px solid rgba(125, 211, 252, 0.22);
+}

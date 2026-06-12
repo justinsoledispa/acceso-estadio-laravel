@@ -1,0 +1,154 @@
+
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.page-kicker {
+    font-size: 0.78rem;
+    font-weight: 800;
+    color: #0284c7;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.35rem;
+}
+
+.page-title {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--access-dark);
+    margin-bottom: 0.25rem;
+}
+
+.page-subtitle {
+    color: var(--access-muted);
+    margin-bottom: 0;
+}
+
+/* TARJETAS DE ACCIÓN */
+
+.action-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.action-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 185px;
+    padding: 1.35rem;
+    border: 1px solid var(--access-border);
+    border-radius: 18px;
+    background: #ffffff;
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.06);
+}
+
+.action-card-label {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: #0284c7;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.65rem;
+}
+
+.action-card h3 {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--access-dark);
+    margin-bottom: 0.5rem;
+}
+
+.action-card p {
+    color: var(--access-muted);
+    margin-bottom: 1rem;
+}
+
+/* TABLAS ADMINISTRATIVAS */
+
+.data-card {
+    overflow: hidden;
+}
+
+.data-card .card-body {
+    padding: 0;
+}
+
+.data-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.1rem 1.25rem;
+    border-bottom: 1px solid var(--access-border);
+    background: #ffffff;
+}
+
+.data-toolbar-title {
+    font-weight: 800;
+    color: var(--access-dark);
+    margin-bottom: 0.15rem;
+}
+
+.data-toolbar-subtitle {
+    font-size: 0.9rem;
+    color: var(--access-muted);
+    margin-bottom: 0;
+}
+
+.table-clean {
+    margin-bottom: 0;
+}
+
+.table-clean tbody tr:hover {
+    background: #f8fafc;
+}
+
+.code-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.35rem 0.55rem;
+    border-radius: 999px;
+    background: #f1f5f9;
+    color: #334155;
+    font-size: 0.82rem;
+    font-weight: 800;
+    border: 1px solid #e2e8f0;
+}
+
+.user-cell strong {
+    color: var(--access-dark);
+}
+
+.user-cell small {
+    display: block;
+    color: var(--access-muted);
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.4rem;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 3rem 1.25rem;
+}
+
+.empty-state-title {
+    font-weight: 800;
+    color: var(--access-dark);
+    margin-bottom: 0.35rem;
+}
+
+.empty-state-text {
+    color: var(--access-muted);
+    margin-bottom: 1.25rem;
+}

@@ -1,0 +1,122 @@
+
+.app-topbar {
+    background: linear-gradient(90deg, var(--access-dark), var(--access-dark-soft));
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.18);
+}
+
+.app-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+}
+
+.app-brand:hover {
+    color: #ffffff;
+}
+
+.app-brand-icon {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    border-radius: 14px;
+    display: grid;
+    place-items: center;
+    background: rgba(14, 165, 233, 0.18);
+    border: 1px solid rgba(14, 165, 233, 0.35);
+    color: #7dd3fc;
+    font-weight: 900;
+    font-size: 0.95rem;
+    letter-spacing: 0.05em;
+}
+
+.app-brand-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
+}
+
+.app-brand-text strong {
+    color: #ffffff;
+    font-size: 1.05rem;
+    font-weight: 900;
+}
+
+.app-brand-text small {
+    color: #cbd5e1;
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+
+.app-user-box {
+    color: #ffffff;
+    line-height: 1.1;
+    text-align: right;
+}
+
+.app-user-box small {
+    color: #cbd5e1;
+}
+
+/* ESTRUCTURA */
+
+.app-shell {
+    min-height: calc(100vh - 95px);
+}
+
+.app-shell > .row {
+    min-height: calc(100vh - 95px);
+}
+
+.app-sidebar {
+    background: var(--access-surface);
+    border-right: 1px solid var(--access-border);
+    min-height: calc(100vh - 95px);
+    padding: 1.25rem;
+}
+
+.app-main {
+    min-height: calc(100vh - 95px);
+    padding: 1.75rem;
+}
+
+.sidebar-title {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--access-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.75rem;
+}
+
+.app-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.app-nav .list-group-item {
+    border: 1px solid transparent;
+    border-radius: 12px;
+    padding: 0.75rem 0.9rem;
+    font-weight: 600;
+    color: #334155;
+    background: transparent;
+    transition: all 0.15s ease;
+}
+
+.app-nav .list-group-item:hover {
+    background: #f1f5f9;
+    border-color: var(--access-border);
+    color: var(--access-dark);
+}
+
+.app-nav .list-group-item.active {
+    background: var(--access-accent-soft);
+    color: #0369a1;
+    border-color: #bae6fd;
+}
