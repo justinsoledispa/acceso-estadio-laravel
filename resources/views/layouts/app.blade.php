@@ -13,11 +13,18 @@
 @php
     $role = auth()->user()->rol->nombre ?? '';
     $userName = auth()->user()->name ?? 'Usuario';
+
+    $homeRoute = match ($role) {
+        'Administrador' => route('admin.dashboard'),
+        'Operador de acreditación' => route('operador.dashboard'),
+        'Usuario final' => route('usuario.credencial'),
+        default => route('login'),
+    };
 @endphp
 
 <nav class="navbar app-topbar px-4 py-3">
     <div class="container-fluid px-0">
-        <a class="app-brand" href="#">
+        <a class="app-brand" href="{{ $homeRoute }}">
             <span class="app-brand-icon"> </span>
             <span>Sistema de Acreditación</span>
         </a>

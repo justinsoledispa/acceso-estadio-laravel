@@ -3,16 +3,25 @@
 @section('title', 'Simular ingreso')
 
 @section('content')
-<div class="mb-4">
-    <h1 class="mb-1">Simular ingreso</h1>
-    <p class="text-muted mb-0">Seleccione un punto de acceso para probar la credencial.</p>
+<div class="page-header">
+    <div>
+        <div class="page-kicker">Validación de acceso</div>
+        <h1 class="page-title">Simular ingreso</h1>
+        <p class="page-subtitle">
+            Selecciona un punto de acceso para validar si la credencial puede ingresar a esa zona.
+        </p>
+    </div>
+
+    <a href="{{ route('usuario.credencial') }}" class="btn btn-outline-primary">
+        Volver a mis credenciales
+    </a>
 </div>
 
 @if(session('resultado_acceso'))
     @php($resultado = session('resultado_acceso'))
 
-    <div class="alert {{ $resultado['resultado'] === 'aprobado' ? 'alert-success' : 'alert-danger' }}">
-        <h5 class="mb-1">
+    <div class="access-result {{ $resultado['resultado'] === 'aprobado' ? 'approved' : 'rejected' }}">
+        <h5 class="access-result-title">
             {{ $resultado['resultado'] === 'aprobado' ? 'Acceso aprobado' : 'Acceso rechazado' }}
         </h5>
 
@@ -21,86 +30,104 @@
         </p>
 
         <p class="mb-0">
-            <strong>Punto:</strong> {{ $resultado['punto'] }} |
+            <strong>Punto:</strong> {{ $resultado['punto'] }}
+            <span class="mx-1">|</span>
             <strong>Zona:</strong> {{ $resultado['zona'] }}
         </p>
     </div>
 @endif
 
-<div class="row">
-    <div class="col-lg-5 mb-4">
-        <div class="card shadow-sm border-0">
-            <div class="card-header bg-dark text-white">
+<div class="row g-4">
+    <div class="col-lg-5">
+        <div class="simulation-panel">
+            <div class="simulation-panel-header">
                 Credencial seleccionada
             </div>
 
-            <div class="card-body">
-                <p class="mb-1">
-                    <strong>Código:</strong> {{ $credencial->codigo_credencial }}
-                </p>
+            <div class="simulation-panel-body">
+                <div class="user-credential-code mt-0">
+                    <span>Código de credencial</span>
+                    <strong>{{ $credencial->codigo_credencial }}</strong>
+                </div>
 
-                <p class="mb-1">
-                    <strong>Partido:</strong> {{ $credencial->partido->nombre }}
-                </p>
+                <div class="info-list">
+                    <div class="info-item">
+                        <span class="info-label">Partido</span>
+                        <span class="info-value">{{ $credencial->partido->nombre }}</span>
+                    </div>
 
-                <p class="mb-1">
-                    <strong>Estadio:</strong> {{ $credencial->partido->estadio->nombre ?? 'Sin estadio' }}
-                </p>
+                    <div class="info-item">
+                        <span class="info-label">Estadio</span>
+                        <span class="info-value">
+                            {{ $credencial->partido->estadio->nombre ?? 'Sin estadio' }}
+                        </span>
+                    </div>
 
-                <p class="mb-1">
-                    <strong>Tipo:</strong> {{ $credencial->tipoAcreditacion->nombre }}
-                </p>
+                    <div class="info-item">
+                        <span class="info-label">Tipo</span>
+                        <span class="info-value">
+                            {{ $credencial->tipoAcreditacion->nombre }}
+                        </span>
+                    </div>
 
-                <p class="mb-0">
-                    <strong>Estado:</strong>
-                    @if($credencial->estado === 'activa')
-                        <span class="badge bg-success">Activa</span>
-                    @elseif($credencial->estado === 'suspendida')
-                        <span class="badge bg-warning text-dark">Suspendida</span>
-                    @else
-                        <span class="badge bg-secondary">Vencida</span>
-                    @endif
-                </p>
+                    <div class="info-item">
+                        <span class="info-label">Estado</span>
+                        <span class="info-value">
+                            @if($credencial->estado === 'activa')
+                                <span class="badge badge-estado-activa">Activa</span>
+                            @elseif($credencial->estado === 'suspendida')
+                                <span class="badge badge-estado-suspendida">Suspendida</span>
+                            @else
+                                <span class="badge badge-estado-vencida">Vencida</span>
+                            @endif
+                        </span>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="card shadow-sm border-0 mt-4">
-            <div class="card-header">
-                Zonas permitidas
+        <div class="simulation-panel mt-4">
+            <div class="simulation-panel-header">
+                Zonas habilitadas
             </div>
 
-            <div class="card-body">
-                <p class="text-muted mb-2">Zonas generales del partido:</p>
+            <div class="simulation-panel-body">
+                <p class="text-muted mb-2">Zonas generales del partido</p>
 
                 @forelse($zonasGenerales as $zona)
-                    <span class="badge bg-primary me-1 mb-1">{{ $zona->nombre }}</span>
+                    <span class="zone-chip zone-chip-general">{{ $zona->nombre }}</span>
                 @empty
-                    <p class="text-muted mb-2">No hay zonas generales habilitadas.</p>
+                    <p class="text-muted mb-3">No hay zonas generales habilitadas.</p>
                 @endforelse
 
                 <hr>
 
-                <p class="text-muted mb-2">Zonas por tipo de acreditación:</p>
+                <p class="text-muted mb-2">Zonas permitidas por tipo de acreditación</p>
 
                 @forelse($zonasPermitidas as $zona)
-                    <span class="badge bg-secondary me-1 mb-1">{{ $zona->nombre }}</span>
+                    <span class="zone-chip zone-chip-restricted">{{ $zona->nombre }}</span>
                 @empty
-                    <p class="text-muted mb-0">No hay zonas restringidas permitidas para este tipo.</p>
+                    <p class="text-muted mb-0">
+                        No hay zonas restringidas permitidas para este tipo de acreditación.
+                    </p>
                 @endforelse
             </div>
         </div>
     </div>
 
     <div class="col-lg-7">
-        <div class="card shadow-sm border-0">
-            <div class="card-header">
+        <div class="simulation-panel">
+            <div class="simulation-panel-header">
                 Punto de acceso
             </div>
 
-            <div class="card-body">
+            <div class="simulation-panel-body">
                 @if($puntosAcceso->isEmpty())
-                    <div class="alert alert-info mb-0">
-                        No hay puntos de acceso disponibles para este partido.
+                    <div class="empty-state py-4">
+                        <h5 class="empty-state-title">No hay puntos de acceso disponibles</h5>
+                        <p class="empty-state-text">
+                            Este partido no tiene puntos de acceso configurados para realizar la simulación.
+                        </p>
                     </div>
                 @else
                     <form method="POST" action="{{ route('usuario.simular-ingreso.procesar', $credencial) }}">
@@ -131,7 +158,14 @@
                             @enderror
                         </div>
 
-                        <div class="d-flex gap-2">
+                        <div class="form-help-box mb-3">
+                            <strong>Validación simulada</strong>
+                            <p class="mb-0 mt-2">
+                                El sistema comprobará el estado de la credencial, el punto de acceso, la zona habilitada para el partido y los permisos del tipo de acreditación.
+                            </p>
+                        </div>
+
+                        <div class="form-actions">
                             <button type="submit" class="btn btn-primary">
                                 Validar acceso
                             </button>

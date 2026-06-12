@@ -116,10 +116,16 @@ class UsuarioFinalController extends Controller
         return view('usuario.historial', compact('registros'));
     }
 
-    public function seleccionarCredencial(): RedirectResponse
-    {
-        return redirect()->route('usuario.credencial');
-    }
+    public function seleccionarCredencial(): View
+{
+    $credenciales = Auth::user()
+        ->credenciales()
+        ->with(['tipoAcreditacion', 'partido.estadio'])
+        ->latest()
+        ->get();
+
+    return view('usuario.seleccionar-credencial', compact('credenciales'));
+}
 
     private function validarAcceso(Credencial $credencial, PuntoAcceso $puntoAcceso): array
     {

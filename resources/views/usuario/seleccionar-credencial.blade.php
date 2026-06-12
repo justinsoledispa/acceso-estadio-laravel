@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
-@section('title', 'Mi credencial')
+@section('title', 'Seleccionar credencial')
 
 @section('content')
 <div class="page-header">
     <div>
-        <div class="page-kicker">Usuario final</div>
-        <h1 class="page-title">Mis credenciales</h1>
+        <div class="page-kicker">Validación de acceso</div>
+        <h1 class="page-title">Seleccionar credencial</h1>
         <p class="page-subtitle">
-            Credenciales digitales asociadas a tus partidos registrados.
+            Elige la credencial con la que deseas iniciar la simulación de ingreso al estadio.
         </p>
     </div>
 
@@ -19,10 +19,14 @@
 
 @if($credenciales->isEmpty())
     <div class="empty-state card">
-        <h5 class="empty-state-title">Todavía no tienes credenciales emitidas</h5>
+        <h5 class="empty-state-title">No tienes credenciales disponibles</h5>
         <p class="empty-state-text">
-            Cuando un operador emita una credencial para tu usuario, aparecerá en esta sección.
+            Para simular un ingreso, primero un operador debe emitir una credencial para tu usuario.
         </p>
+
+        <a href="{{ route('usuario.credencial') }}" class="btn btn-primary">
+            Ver mis credenciales
+        </a>
     </div>
 @else
     <div class="user-credential-grid">
@@ -74,12 +78,12 @@
                     </div>
 
                     <div class="user-credential-code">
-                        <span>Código textual de acceso</span>
+                        <span>Credencial para simulación</span>
                         <strong>{{ $credencial->codigo_credencial }}</strong>
                     </div>
 
                     <a href="{{ route('usuario.simular-ingreso', $credencial) }}" class="btn btn-primary w-100">
-                        Simular ingreso
+                        Iniciar simulación
                     </a>
                 </div>
             </div>
